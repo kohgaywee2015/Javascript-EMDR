@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<style>
+#box-one
+{
+	width: 100px;
+	height: 100px;
+	background-color: blue;
+}
+
+#box-two
+{
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	background-color: blue;
+	transition: transform 0.6s ease;
+	margin-top:200px;
+	margin-left:700px;
+}
+
+#button-three
+{
+  position: relative;
+  left: 200px;
+}
+
+body
+{
+  background-color: #E1E7E8;
+}
+
+#mini-container
+{
+	width:80%;
+	height:500px;
+	background-color: grey;
+}
+</style>
+</head>
+<body>
+<h2>Translation on click by using jQuery</h2>
+<div id="box-one"></div>
+<button id="button-one">translate</button>
+<hr/>
+<h2>Smooth translation on click by using jQuery</h2>
+<div id="mini-container">
+<div id="box-two"></div>
+</div>
+<button id="button-two">translate</button>
+<br/>
+<button id="button-three">reset</button>
+
+
+<script>
+$(document).ready(function(){
+  $('#button-one').click(function(){
+    $('#box-one').css("transform","translate(250px,0)");
+  });
+});
+
+$(document).ready(function(){
+  $('#button-two').click(function(){
+		$('#box-two').css("transform","translate(0,200px)");
+	var explode1 = function(){
+		$('#box-two').css("transform","translate(0,-12.5px)");
+	};
+	setTimeout(explode1, 700);
+	var explode2 = function(){
+		$('#box-two').css("transform","translate(700px,0px)");
+	};
+	setTimeout(explode2, 1400);
+	var explode3= function(){
+		$('#box-two').css("transform","translate(-12.5px,0px)");
+	};
+	setTimeout(explode3, 2100);
+	var explode4= function(){
+		$('#box-two').css("transform","translate(0px,-200px)");
+	};
+	setTimeout(explode4, 2800);
+	var explode5= function(){
+		$('#box-two').css("transform","translate(0px, 32.5px)");
+	};
+	setTimeout(explode5, 3500);
+	var explode6= function(){
+		$('#box-two').css("transform","translate(-700px, 0px)");
+	};
+	setTimeout(explode6, 4200);
+	var explode7= function(){
+		$('#box-two').css("transform","translate(200px, 0px)");
+	};
+	setTimeout(explode7, 4900);
+  });
+});
+
+$(document).ready(function(){
+  $('#button-three').click(function(){
+    $('#box-one, #box-two').css("transform","translate(0px,0)");
+  });
+});
+
+</script>
+</body>
+</html>
